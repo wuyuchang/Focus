@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Getting started example",
+  "name": "Focus",
   "version": "1.0",
 
   "description": "This extension shows a Google Image search result for the current page",
@@ -10,8 +10,43 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://www.amazon.com/*",
+        "*://www.amazon.cn/*",
+        "*://www.bilibili.com/*",
+        "*://www.iqiyi.com/*",
+        "*://www.zhihu.com/*",
+        "*://www.taobao.com/*",
+        "*://www.tmall.com/*",
+        "*://www.jd.com/*",
+        "*://www.vmall.com/*",
+        "*://www.apple.com/*",
+        "*://www.htc.com/*",
+        "*://www.mi.com/*",
+        "*://www.meizu.com/*",
+        "*://www.oneplus.cn/*"
+      ],
+      "js": ["content_script.js"],
+      "css": ["content_script.css"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "permissions": [
     "activeTab",
+    "storage",
     "https://ajax.googleapis.com/"
-  ]
+  ],
+
+  "storage": {
+    "managed_schema": "schema.json"
+  }
 }
