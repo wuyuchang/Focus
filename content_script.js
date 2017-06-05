@@ -9,42 +9,79 @@
 //   console.log(d)
 // })
 
-chrome.storage.sync.get(function (v) {
-  var swi = v.switch
-  var inTime = true
-  var sTime = new Date()
-  var eTime = new Date()
-  var now = new Date()
+const matches = [
+  // 视频
+  'youtube.com',
+  'bilibili.com',
+  'iqiyi.com',
+  'tudou.com',
+  'youku.com',
 
-  console.log(v)
+  // 购物网站
+  'amazon.com',
+  'amazon.cn',
+  'taobao.com',
+  'tmall.com',
+  'jd.com',
+  'vmall.com',
+  'apple.com',
+  'apple.cn',
+  'htc.com',
+  'mi.com',
+  'meizu.com',
+  'oneplus.cn',
 
-  sTime.setHours(v.sHour)
-  sTime.setMinutes(v.sMinute)
-  sTime.setSeconds(v.sSecond)
-  eTime.setHours(v.eHour)
-  eTime.setMinutes(v.eMinute)
-  eTime.setSeconds(v.eSecond)
+  //
+  'zhihu.com',
 
-  if (sTime.getTime() < eTime.getTime()) {
-    if (now.getTime() > sTime.getTime() && now.getTime() < eTime.getTime()) {
-      inTime = true
-    } else {
-      inTime = false
-    }
-  } else {
+  // 社交网站
+  'twitter.com',
+  'facebook.com'
+]
 
-  }
-
-  if (swi && inTime) {
-    window.stop()
-
-    document.querySelector('html').innerHTML = `
-    <head>
-      <title>Focus</title>
-    </head>
-    <body>
-      <div class="wuyuchang-focus">Stay focus, keep forward...</div>
-    </body>
-    `
-  }
+let inURL = matches.some(function (url) {
+  return location.host.indexOf(url) >= 0
 })
+
+if (inURL) {
+  chrome.storage.sync.get(function (v) {
+    var swi = v.switch
+    var inTime = true
+    var sTime = new Date()
+    var eTime = new Date()
+    var now = new Date()
+
+    console.log(v)
+
+    sTime.setHours(v.sHour)
+    sTime.setMinutes(v.sMinute)
+    sTime.setSeconds(v.sSecond)
+    eTime.setHours(v.eHour)
+    eTime.setMinutes(v.eMinute)
+    eTime.setSeconds(v.eSecond)
+
+    if (sTime.getTime() < eTime.getTime()) {
+      if (now.getTime() > sTime.getTime() && now.getTime() < eTime.getTime()) {
+        inTime = true
+      } else {
+        inTime = false
+      }
+    } else {
+
+    }
+
+    if (swi && inTime) {
+      window.stop()
+
+      document.querySelector('html').innerHTML = `
+      <head>
+        <title>Focus</title>
+      </head>
+      <body>
+        <div class="wuyuchang-focus">Stay focus, keep forward...</div>
+      </body>
+      `
+    }
+  })
+
+}

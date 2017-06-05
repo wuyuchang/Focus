@@ -13,23 +13,7 @@
 
   "content_scripts": [
     {
-      "matches": [
-        "*://www.youtube.com/*",
-        "*://www.amazon.com/*",
-        "*://www.amazon.cn/*",
-        "*://www.bilibili.com/*",
-        "*://www.iqiyi.com/*",
-        "*://www.zhihu.com/*",
-        "*://www.taobao.com/*",
-        "*://www.tmall.com/*",
-        "*://www.jd.com/*",
-        "*://www.vmall.com/*",
-        "*://www.apple.com/*",
-        "*://www.htc.com/*",
-        "*://www.mi.com/*",
-        "*://www.meizu.com/*",
-        "*://www.oneplus.cn/*"
-      ],
+      "matches": ["*://*/*"],
       "js": ["content_script.js"],
       "css": ["content_script.css"],
       "run_at": "document_start"
