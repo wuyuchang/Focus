@@ -14,3 +14,10 @@
 
   transition: all 1s;
 }
+
+
+.wuyuchang-adblock {
+  position: fixed;
+  left: 0;
+  top: -10000px;
+}

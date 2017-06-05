@@ -85,3 +85,29 @@ if (inURL) {
   })
 
 }
+
+
+// 屏蔽百度广告
+// if (location.host.indexOf('baidu.com')) {
+//   window.onload = function () {
+//
+//     $('span.m').parents('.result').addClass('wuyuchang-adblock')
+//
+//     var adblock = function (id) {
+//       var ele = document.getElementById(id)
+//       if (ele) {
+//         ele.className = 'wuyuchang-adblock'
+//         console.log(ele)
+//       }
+//
+//     }
+//
+//     for (var i = 3000; i < 3020; i++) {
+//       adblock(i)
+//     }
+//
+//     for (var i = 4000; i < 4020; i++) {
+//       adblock(i)
+//     }
+//   }
+// }
