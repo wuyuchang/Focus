@@ -44,9 +44,5 @@
     "activeTab",
     "storage",
     "https://ajax.googleapis.com/"
-  ],
-
-  "storage": {
-    "managed_schema": "schema.json"
-  }
+  ]
 }

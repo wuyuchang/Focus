@@ -1,7 +1,3 @@
-body {
-  overflow: hidden !important;
-}
-
 .wuyuchang-focus {
   z-index: 9999999;
   position: fixed;

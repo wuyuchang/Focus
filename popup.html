@@ -4,16 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Focus</title>
-  <style>
-  body {
-    white-space: nowrap;
-    vertical-align: middle;
-  }
-  </style>
+  <link rel="stylesheet" href="lib/toggle/toggle.css">
 
+  <link rel="stylesheet" href="popup.css">
   <script src="popup.js" charset="utf-8"></script>
 </head>
 <body>
-  开启<input type="checkbox" name="" id="">
+  <h1>Focus</h1>
+
+  <ul class="form-list">
+    <li class="switch-box">
+      <strong>
+        开 / 关
+      </strong>
+      <label class="switch-light switch-candy">
+        <input type="checkbox" id="switch">
+        <span>
+          <span>Off</span>
+          <span>On</span>
+          <a></a>
+        </span>
+      </label>
+    </li>
+
+    <li class="start-time">
+      <strong>起始时间</strong>
+      <div class="time">
+        <input type="number" name="sHour" step="1" min="0" max="23" value="9">:
+        <input type="number" name="sMinute" step="5" min="0" max="59" value="00">:
+        <input type="number" name="sSecond" step="30" min="0" max="59" value="00">
+      </div>
+    </li>
+
+    <li class="enb-time">
+      <strong>结束时间</strong>
+      <div class="time">
+        <input type="number" name="eHour" step="1" min="0" max="23" value="18">:
+        <input type="number" name="eMinute" step="5" min="0" max="59" value="00">:
+        <input type="number" name="eSecond" step="30" min="0" max="59" value="00">
+      </div>
+    </li>
+  </ul>
+
+
 </body>
 </html>
