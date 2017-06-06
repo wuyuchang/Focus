@@ -2,13 +2,11 @@ window.addEventListener('DOMContentLoaded', function () {
   var storage = chrome.storage.sync
   var $ = document.querySelectorAll.bind(document)
   var swi = $('#switch')[0]
-
-  swi.addEventListener('change', function (e) {
-    storage.set({switch: this.checked})
-  })
+  var baiduAdblock = $('#baiduAdblock')[0]
 
   storage.get(function (v) {
     swi.checked = v.switch
+    baiduAdblock.checked = v.baiduAdblock
 
     if (v.sHour) {
       $('[name=sHour]')[0].value = v.sHour
@@ -47,6 +45,13 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   })
 
+  swi.addEventListener('change', function (e) {
+    storage.set({switch: this.checked})
+  })
+
+  baiduAdblock.addEventListener('change', function (e) {
+    storage.set({baiduAdblock: this.checked})
+  })
 
   for (var node of $('.time input')) {
     node.onkeydown = function (e) {
